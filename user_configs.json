@@ -1,4 +1,8 @@
 {
+    "_comments": {
+        "users": "List of users to fetch emails for",
+        "params": "Parameters to pass to the API"
+    },
     "users": [
         {
             "name": "Personal Email",

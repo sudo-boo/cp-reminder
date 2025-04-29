@@ -12,33 +12,38 @@ First, fork this repository to your own GitHub account.
 
 1. Click the **Fork** button in the top-right corner of the page to create a copy of the repository in your GitHub account.
 
-### 2. Configure Your Email Preferences
+### 2. Configure Your Preferences
 
 Finally, to receive contest reminders through email, change the following fields in user_configs.json
 
 1. Add your email address and other parameter changes in the file like this:
 
-```json
-{
-    "users": [
-        // you can add multiple emails here
-        {
-            "name": "Email 1",
-            "email": "trallalero-tralla@he.he"
+    ```json
+    {
+        "_comments": {
+            "users": "List of users to fetch emails for",
+            "params": "Parameters to pass to the API"
         },
-        // {
-        //     "name": "Email 2",
-        //     "email": "chimpanzini-bananini@he.he"
-        // }
-    ]
-    "params": {
-        "upcoming": "true",
-        "start_time__during": "2 days",
-        "format": "json",
-        "limit": 100
-    },
-}
-```
+        "users": [
+            {
+                "name": "Email 1",
+                "email": "trallalero-tralla@he.he"
+            },
+            {
+                "name": "Email 2",
+                "email": "chimpanzini-bananini@he.he"
+            }
+        ]
+        "params": {
+            "upcoming": "true",
+            "start_time__during": "2 days",
+            "format": "json",
+            "limit": 100
+        },
+    }
+    ```
+
+2. By default, the workflow runs 2 times a day (07:30 UTC (13:00 IST) and 13:30 UTC (19:00 IST)). You can change this in the `.github/workflows/main.yml` under `cron` section.
 
 ### 3. Create Your API Key on Codeforces List (Clist)
 
@@ -78,3 +83,5 @@ Once you’ve got your Clist API Key and email app password, you need to add the
 **Read how to do it here**: [GitHub Secrets](https://docs.github.com/en/actions/security-guides/encrypted-secrets)
 
 ### And you're all set!!
+
+### Happy Coding!!
