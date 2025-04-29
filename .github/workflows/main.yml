@@ -1,0 +1,32 @@
+name: Contest Reminder Email
+
+on:
+  schedule:
+    - cron: '30 7,13 * * *'
+  workflow_dispatch:
+
+jobs:
+  send-contest-reminder:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+
+      - name: Install Dependencies
+        run: pip install requests python-dateutil pytz
+      
+      - name: Create .env file
+        run: |
+          touch .env
+          echo "API_KEY=${{ secrets.API_KEY }}" > .env
+          echo "SENDER_EMAIL=${{ secrets.SENDER_EMAIL }}" >> .env
+          echo "SENDER_PASSWORD=${{ secrets.SENDER_PASSWORD }}" >> .env
+
+      - name: Run Contest Reminder Script
+        run: python script.py

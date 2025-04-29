@@ -1,0 +1,18 @@
+{
+    "users": [
+        {
+            "name": "Personal Email",
+            "email": "omkarshirpure00@gmail.com"
+        },
+        {
+            "name": "Insti Email",
+            "email": "22b0910@iitb.ac.in"
+        }
+    ],
+    "params": {
+        "upcoming": "true",
+        "start_time__during": "2 days",
+        "format": "json",
+        "limit": 100
+    }
+}
